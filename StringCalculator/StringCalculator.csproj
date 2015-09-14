@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ParmeterAttributeStringCalculatorTests.cs" />
+    <Compile Include="SimpleStringCalculatorTests.cs" />
     <Compile Include="SourceAttributeStringCalculatorTests.cs" />
     <Compile Include="StringCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
