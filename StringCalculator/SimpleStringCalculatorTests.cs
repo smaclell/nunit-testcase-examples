@@ -8,18 +8,27 @@ namespace StringCalculator {
         public void Add_EmptyString_ReturnsZero() {
             StringCalculator calculator = new StringCalculator();
 
-            int total = calculator.Add("");
+            int total = calculator.Add( "" );
 
-            Assert.AreEqual(0, total);
+            Assert.AreEqual( 0, total );
         }
 
         [Test]
         public void Add_SingleNumber_ReturnsTheNumber() {
             StringCalculator calculator = new StringCalculator();
 
-            int total = calculator.Add("1");
+            int total = calculator.Add( "1" );
 
-            Assert.AreEqual(1, total);
+            Assert.AreEqual( 1, total );
+        }
+
+        [Test]
+        public void Add_TwoNumbers_ReturnsTheTotal() {
+            StringCalculator calculator = new StringCalculator();
+
+            int total = calculator.Add( "1,2" );
+
+            Assert.AreEqual( 3, total );
         }
     }
 }
