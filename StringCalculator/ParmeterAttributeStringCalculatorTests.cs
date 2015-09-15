@@ -52,8 +52,11 @@ namespace StringCalculator {
         }
 
         private static IEnumerable<int> AnyRandomNumber() {
+            // Limit the maximum random value to avoid overflows
+            const int maxValue = (int.MaxValue - 1) / 2;
+
             Random r = new Random();
-            yield return r.Next();
+            yield return r.Next( maxValue );
         }
 
         [Test]
