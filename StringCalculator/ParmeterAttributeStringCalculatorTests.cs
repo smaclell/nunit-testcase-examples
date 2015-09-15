@@ -3,8 +3,8 @@ using NUnit.Framework;
 using System.Collections.Generic;
 
 namespace StringCalculator {
-	[TestFixture]
-	public class ParameterAttributeStringCalculatorTests {
+    [TestFixture]
+    public class ParameterAttributeStringCalculatorTests {
 
         private static string[] TestNumbers() {
             return new string[] {
@@ -29,16 +29,16 @@ namespace StringCalculator {
         }
 
         [Test, Sequential]
-		public void Add_SimpleInputs_AddsNumbers(
+        public void Add_SimpleInputs_AddsNumbers(
             [ValueSource( "TestNumbers" )] string numbers,
             [ValueSource( "TestTotals" )] int expectedTotal
         ) {
-			StringCalculator calculator = new StringCalculator();
+            StringCalculator calculator = new StringCalculator();
 
-			int total = calculator.Add( numbers );
+            int total = calculator.Add( numbers );
 
-			Assert.AreEqual( expectedTotal, total );
-		}
+            Assert.AreEqual( expectedTotal, total );
+        }
 
         private static IEnumerable<int> AnyRandomNumber() {
             Random r = new Random();
@@ -53,22 +53,22 @@ namespace StringCalculator {
             StringCalculator calculator = new StringCalculator();
 
             string numbers = a + "," + b;
-            int total = calculator.Add(numbers);
+            int total = calculator.Add( numbers );
 
-            Assert.AreEqual( a + b, total);
+            Assert.AreEqual( a + b, total );
         }
 
         [Test]
         public void Add_RandomNumbers_AddsNumbers(
             [Random( 0, 10, 1 )] int a,
-            [Random(0, 10, 1)] int b
+            [Random( 0, 10, 1 )] int b
         ) {
             StringCalculator calculator = new StringCalculator();
 
             string numbers = a + "," + b;
-            int total = calculator.Add(numbers);
+            int total = calculator.Add( numbers );
 
-            Assert.AreEqual(a + b, total);
+            Assert.AreEqual( a + b, total );
         }
 
         [Test]
@@ -79,23 +79,23 @@ namespace StringCalculator {
             StringCalculator calculator = new StringCalculator();
 
             string numbers = a + "," + b;
-            int total = calculator.Add(numbers);
+            int total = calculator.Add( numbers );
 
-            Assert.AreEqual(a + b, total);
+            Assert.AreEqual( a + b, total );
         }
 
         [Test]
         public void Add_RangeBetweenOneAndFive_AddsNumbers(
-            [Range( 1, 5)] int a,
-            [Range( 1, 5)] int b
+            [Range( 1, 5 )] int a,
+            [Range( 1, 5 )] int b
         ) {
             StringCalculator calculator = new StringCalculator();
 
             string numbers = a + "," + b;
-            int total = calculator.Add(numbers);
+            int total = calculator.Add( numbers );
 
-            Assert.AreEqual(a + b, total);
+            Assert.AreEqual( a + b, total );
         }
 
-	}
+    }
 }
