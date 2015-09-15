@@ -86,6 +86,18 @@ namespace StringCalculator {
         }
 
         [Test]
+        public void Add_RandomNumberBetweenZeroAndTen_ReturnsTheNumber(
+            [Random( 0, 10, 1 )] int number
+        ) {
+            StringCalculator calculator = new StringCalculator();
+
+            string numbers = number.ToString();
+            int total = calculator.Add( numbers );
+
+            Assert.AreEqual( number, total );
+        }
+
+        [Test]
         public void Add_RandomNumbers_AddsNumbers(
             [Random( 0, 10, 1 )] int a,
             [Random( 0, 10, 1 )] int b
@@ -96,6 +108,18 @@ namespace StringCalculator {
             int total = calculator.Add( numbers );
 
             Assert.AreEqual( a + b, total );
+        }
+
+        [Test]
+        public void Add_EvenNumbersBetweenTwoAndTen_ReturnsTheNumber(
+            [Range( 2, 10, 2 )] int number
+        ) {
+            StringCalculator calculator = new StringCalculator();
+
+            string numbers = number.ToString();
+            int total = calculator.Add( numbers );
+
+            Assert.AreEqual( number, total );
         }
 
         [Test]
