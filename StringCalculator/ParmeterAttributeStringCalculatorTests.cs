@@ -7,8 +7,21 @@ namespace StringCalculator {
     public class ParameterAttributeStringCalculatorTests {
 
         [Test]
-        public void Add_NullOrBlank_ReturnsZero(
+        public void Add_NullOrBlankFromValues_ReturnsZero(
             [Values( null, "", " ", "\t", "\n" )] string input
+        ) {
+            StringCalculator calculator = new StringCalculator();
+
+            int total = calculator.Add( input );
+
+            Assert.AreEqual( 0, total );
+        }
+
+        private static string[] NullOrBlankCases = new string[] { null, "", " ", "\t", "\n" };
+
+        [Test]
+        public void Add_NullOrBlankFromSource_ReturnsZero(
+            [ValueSource( "NullOrBlankCases" )] string input
         ) {
             StringCalculator calculator = new StringCalculator();
 
