@@ -7,7 +7,7 @@ namespace StringCalculator {
     public class StringCalculator {
 
 		public int Add( string numbers ) {
-			if ( string.IsNullOrEmpty( numbers ) ) {
+			if ( string.IsNullOrWhiteSpace( numbers ) ) {
 				return 0;
 			}
 

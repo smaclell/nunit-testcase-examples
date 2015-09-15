@@ -6,6 +6,17 @@ namespace StringCalculator {
     [TestFixture]
     public class ParameterAttributeStringCalculatorTests {
 
+        [Test]
+        public void Add_NullOrBlank_ReturnsZero(
+            [Values( null, "", " ", "\t", "\n" )] string input
+        ) {
+            StringCalculator calculator = new StringCalculator();
+
+            int total = calculator.Add( input );
+
+            Assert.AreEqual( 0, total );
+        }
+
         private static string[] TestNumbers() {
             return new string[] {
                 "",
